@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Phonebook</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    
+  }
+  h1 {
+    text-align: center;
+    margin-bottom: 30px;
+  }
+  input[type="text"], button {
+    margin-bottom: 10px;
+    padding: 10px;
+    border: 2px solid #ccc;
+    border-radius: 5px;
+    display: block;
+    margin: 15px auto;
+  }
+  #result {
+    margin-top: 10px;
+    font-size: 18px;
+    text-align: center;
+
+  }
+  @media screen and (max-width: 600px) {
+    input[type="text"], button, #result {
+      width: 100%;
+    }
+  }
+
+</style>
+</head>
+<body>
+    <h1>Phonebook📞📕</h1>
+    <input type="text" id="search" placeholder="Search"/>
+    <button type="button"onclick="search()">🔍</button>
+    <p id="result"></p>
+
+  <script>
+    const contacts = {
+      yash: "9999999999", 
+      ravi: "8888888888",
+      vijay:"7777777777",
+      amit: "6666666666",
+    }
+
+    function search() {
+      const searchInput = document.getElementById("search");
+      const searchText = searchInput.value.toLowerCase();
+
+      const mobile = contacts[searchText];
+      const result = document.getElementById("result");
+    
+
+    if(mobile) {
+      document.getElementById("result").innerText = `Contact number of ${searchText} is ${mobile}`;
+    }
+     else {
+      document.getElementById("result").innerText = "No contact found";
+    }
+  }
+
+  </script>
+</body>
+</html>
